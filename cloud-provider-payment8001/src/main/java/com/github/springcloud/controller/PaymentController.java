@@ -4,10 +4,7 @@ import com.github.springcloud.entities.CommonResult;
 import com.github.springcloud.entities.Payment;
 import com.github.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -23,8 +20,9 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+    // 不要忘记RequestBody注解，因为Order客户端传过来的是Json串，需要解析
     @PostMapping("/payment")
-    public CommonResult<Boolean> create(Payment payment) {
+    public CommonResult<Boolean> create(@RequestBody Payment payment) {
         boolean save = paymentService.save(payment);
         log.info("******插入结果：" + save);
         if (save) {
@@ -36,6 +34,7 @@ public class PaymentController {
     @GetMapping("/payment/{id}")
     public CommonResult<Payment> getById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getById(id);
+        log.info("成功进入getPayment");
         if (payment != null) {
             return new CommonResult<>(200, "获取数据成功", payment);
         }
