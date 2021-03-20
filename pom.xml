@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>cloud-provider-payment8001</module>
+        <module>cloud-api-commons</module>
     </modules>
 
     <properties>
