@@ -12,6 +12,7 @@
         <module>cloud-provider-payment8001</module>
         <module>cloud-api-commons</module>
         <module>cloud-eureka-server7001</module>
+        <module>cloud-eureka-server7002</module>
     </modules>
 
     <properties>
@@ -22,7 +23,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--spring boot-->
+            <!--springcloud boot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -30,7 +31,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--spring cloud-->
+            <!--springcloud cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -38,7 +39,7 @@
                 <type>pom</type>
                 <scope>runtime</scope>
             </dependency>
-            <!--spring cloud alibaba-->
+            <!--springcloud cloud alibaba-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
