@@ -5,9 +5,12 @@ import com.github.springcloud.entities.Payment;
 import com.github.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author HAN
@@ -23,6 +26,9 @@ public class PaymentController {
 
     @Value("${server.port}")
     private String serverPort;
+
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     // 不要忘记RequestBody注解，因为Order客户端传过来的是Json串，需要解析
     @PostMapping("/payment")
@@ -43,6 +49,16 @@ public class PaymentController {
             return new CommonResult<>(200, "获取数据成功, serverPort:" + serverPort, payment);
         }
         return new CommonResult<>(444, "id[" + id + "]没有对应记录", payment);
+    }
+
+    @GetMapping("/payment/discovery")
+    public Object discovery() {
+        List<String> services = discoveryClient.getServices();
+        services.forEach(s -> log.info("*****element" + s));
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        instances.forEach(s -> log.info(s.getInstanceId() + "\t" + s.getHost() + "\t" + s.getPort() + "\t" + s.getUri()));
+        return this.discoveryClient;
     }
 
 }
