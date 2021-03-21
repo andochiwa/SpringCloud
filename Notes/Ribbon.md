@@ -31,4 +31,14 @@ Ribbon本地负载均衡，在调用微服务接口的时候，会在注册中�
 4. `WeightedResponseTimeRule ` 对`RoundRobinRule`的扩展，响应速度越快的实例选择权重越大，越容易被选择
 5. `BestAvailableRule` 会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，然后选择一个并发量最小的服务
 6. `AvailabilityFilteringRule` 先过滤掉故障实例，再选择并发较小的实例
-7. `ZoneAvoidanceRule` 默认，复合判断Server所在区域的性能和Server的可用性选择服务器
+7. `ZoneAvoidanceRule` 复合判断Server所在区域的性能和Server的可用性选择服务器
+
+
+
+# 替换方法
+
+自定义配置类不能放在@ComponentScan所扫描的包以及子包下，否则自定义类会被Ribbon客户端共享，达不到特殊定制的目的
+
+1. 在客户端模块下新建一个包，这个包不能被SpringBoot所扫描到
+2. 新增一个配置类，返回IRule这个Bean对象
+3. 在主启动类上添加`@RibbonClient`，标注好name的配置类
