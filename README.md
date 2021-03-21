@@ -23,7 +23,7 @@
 1. [OpenFeign](https://github.com/andochiwa/SpringCloud/blob/master/Notes/OpenFeign.md) 无敌！
 2. `Feign` 死翘翘了
 
-## 服务降级/熔断/限流
+## [服务降级/熔断/限流](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7.md)
 
 1. `sentienl` 阿里巴巴牛逼
 2. `resilience4j` 可用，国内用的少
