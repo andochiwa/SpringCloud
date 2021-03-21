@@ -42,4 +42,19 @@ Feign提供了日志打印功能，可以通过配置来调整日志级别，从
 
 ## 配置方法
 
-1. 创建配置的日志bean
+```yaml
+feign:
+  client:
+    config:
+      default.loggerLevel: FULL
+```
+
+或者创建一个配置bean，返回Logger.Level对象
+
+然后在yml中开启接口日志监控
+
+```yaml
+logging:
+  level: 
+    com.github.springcloud.service.PaymentFeignService: debug
+```

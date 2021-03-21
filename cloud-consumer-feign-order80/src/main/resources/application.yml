@@ -10,3 +10,12 @@ eureka:
     service-url:
       defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka
 
+# 开启feign的日志监控
+feign:
+  client:
+    config:
+      default.loggerLevel: FULL
+# 开启针对接口的日志监控
+logging:
+  level:
+    com.github.springcloud.service.PaymentFeignService: debug
