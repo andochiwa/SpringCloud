@@ -6,39 +6,39 @@
 
 # Spring Cloud 组件
 
-## 服务注册中心
+## [服务注册中心](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C.md)
 
 1. `Nacos` **无敌！**
-2. `Zookeeper` 可用
-3. `Consul` 走保守路线
-4. `Euraka` X 已停更
+2. [Zookeeper](https://github.com/andochiwa/SpringCloud/blob/master/Notes/zookeeper.md) 可用
+3. [Consul](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Consul.md) 走保守路线
+4. [Euraka](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Eureka.md) 已停更
 
-## 服务调用
+## [服务调用](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8.md)
 
-1. `Ribbon` 停更，但可用
-2. `LoadBalancer` 慢慢取代Ribbon
+1. [Ribbon](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Ribbon.md) 停更，但可用
+2. [LoadBalancer](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Ribbon.md) 慢慢取代Ribbon
 
-## 服务调用2
+## [服务调用2](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8.md)
 
-1. `OpenFeign` 无敌！
+1. [OpenFeign](https://github.com/andochiwa/SpringCloud/blob/master/Notes/OpenFeign.md) 无敌！
 2. `Feign` 死翘翘了
 
-## 服务降级
+## 服务降级/熔断/限流
 
 1. `sentienl` 阿里巴巴牛逼
 2. `resilience4j` 可用，国内用的少
-3. `Hystrix` X 停更
+3. [Hystrix](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Hystrix.md) 停更
 
 ## 服务网关
 
 1. `gateway` 推荐
 2. `Zuul2` ¿
-3. `Zuul` X 停更
+3. `Zuul` 停更
 
 ## 服务配置
 
 1. `Nacos` 阿里巴巴牛逼
-2. `Config` X 白给
+2. `Config` 白给
 
 ## 服务总线
 
