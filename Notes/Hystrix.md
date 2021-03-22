@@ -6,7 +6,7 @@ Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在�
 
 
 
-# 生产端启动方法
+# 服务端备用方法
 
 1. 在service层的方法上加上注解
 
@@ -23,9 +23,29 @@ Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在�
 
 
 
-# 消费端启动方法
+# 客户端备用方法
 
 1. 配置文件开启`feign.circuitbreaker.enabled = true`
 2. 主启动类激活 `@EnableHystrix`
-3. 编写业务类
+3. 在业务类上的方法加上同上注解
 
+
+
+# 指定默认的备用方法
+
+1. 编写全局的处理异常方法
+2. 在类上加上注解`@DefaultProperties(defaultFallback = "")`， 其中defaultFallback内是方法名
+3. 在需要降级的方法上加上注解`@HystrixCommand`
+
+
+
+# 服务降级
+
+客户端去调用服务端，但服务端宕机或已关闭时的处理
+
+在之前的情况中，`@HystrixCommand`注解需要标注在方法上，耦合度很高，所以需要解耦
+
+1. 重新建一个自定义类，实现自定义的`Feign`接口
+2. 在自定义类中重写接口的方法
+3. 开启`feign.circuitbreaker.enabled = true`
+4. 在Feign接口的注解`FeignClient`内添加`fallback = xxx.class`
