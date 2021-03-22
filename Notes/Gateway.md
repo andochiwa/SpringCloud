@@ -34,25 +34,61 @@ Filter在pre类型的过滤器可以做参数校验、权限校验、流量监�
 
 
 
-# 配置流程
+# 配置
 
-1. yml配置
+```yaml
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: payment_routh           # 路由的id，没有固定规则，但要求唯一，建议配合服务名
+          uri: http://localhost:8001  # 匹配后提供服务的路由地址
+          predicates:
+            - Path=/payment/**        # 断言，路径相匹配的进行路由
+```
 
-   ```yaml
-   server:
-     port: 9527
-   spring:
-     application:
-       name: cloud-gateway-service
-     cloud:
-       gateway:
-         routes:
-           - id: payment_routh           # 路由的id，没有固定规则，但要求唯一，建议配合服务名
-             uri: http://localhost:8001  # 匹配后提供服务的路由地址
-             predicates:
-               - Path=/payment/**        # 断言，路径相匹配的进行路由
-   ```
 
-   
 
-2. 
+# 动态路由
+
+> 默认情况下Gateway会根据注册中心注册的服务列表，以注册中心上的微服务名为路径创建动态路由进行转发，从而实现动态路由的功能
+
+1. 配置服务端集群
+2. yml中配置
+
+```yaml
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true   #开启动态路由
+      routes:
+        - id: payment_routh           # 路由的id，没有固定规则，但要求唯一，建议配合服务名
+          uri: lb://CLOUD-PAYMENT-SERVICE  # 匹配后提供服务的路由地址
+          predicates:
+            - Path=/payment/**        # 断言，路径相匹配的进行路由
+```
+
+其中，`uri`为微服务名字，lb表示负载均衡
+
+
+
+# Predicate断言配置
+
+[见这里~](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories)
+
+
+
+# FIlter过滤器配置
+
+[局部见这里~](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories)，[全局见这里~](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#global-filters)
+
+## 自定义全局过滤器
+
+实现两个接口`GlobalFilter`和`Ordered`
+
