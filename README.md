@@ -35,10 +35,10 @@
 2. `Zuul2` ¿喜欢内部打架
 3. `Zuul` 停更
 
-## 服务配置
+## [服务配置](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE.md)
 
 1. `Nacos` 阿里巴巴牛逼
-2. `Config` 白给
+2. [Config](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Config.md) 白给
 
 ## 服务总线
 
