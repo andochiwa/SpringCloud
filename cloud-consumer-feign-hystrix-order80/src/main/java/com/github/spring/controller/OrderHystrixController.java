@@ -35,6 +35,6 @@ public class OrderHystrixController {
     }
 
     public String getByIdTimeoutHandler(Long id) {
-        return "线程池: " + Thread.currentThread().getName() + " getByIdTimeoutHandler";
+        return "线程池: " + Thread.currentThread().getName() + " 在消费端超时，getByIdTimeoutHandler===Order";
     }
 }

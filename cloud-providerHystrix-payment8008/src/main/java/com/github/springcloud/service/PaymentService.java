@@ -22,7 +22,7 @@ public class PaymentService {
     @SneakyThrows
     @HystrixCommand(fallbackMethod = "getByIdTimeoutHandler",
             commandProperties =  {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
     })
     public String getByIdTimeout(Long id) {
         Thread.sleep(3000);
@@ -30,6 +30,6 @@ public class PaymentService {
     }
 
     public String getByIdTimeoutHandler(Long id) {
-        return "线程池: " + Thread.currentThread().getName() + " getByIdTimeoutHandler";
+        return "线程池: " + Thread.currentThread().getName() + " 在生产端超时，getByIdTimeoutHandler";
     }
 }
