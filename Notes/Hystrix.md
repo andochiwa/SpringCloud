@@ -49,3 +49,24 @@ Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在�
 2. 在自定义类中重写接口的方法
 3. 开启`feign.circuitbreaker.enabled = true`
 4. 在Feign接口的注解`FeignClient`内添加`fallback = xxx.class`
+
+
+
+# 服务熔断
+
+## 服务端配置
+
+```jade
+@HystrixCommand(fallbackMethod = "paymentCircuitBreakerFallback", commandProperties = {
+        @HystrixProperty(name = "circuitBreaker.enabled", value = "true"), // 是否开启断路器
+        @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), // 请求次数
+        @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), // 时间窗口期
+        @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"), // 失败到达率
+})
+```
+
+`circuitBreaker.sleepWindowInMilliseconds` 熔断多少秒后开始尝试恢复，默认5000
+
+`circuitBreaker.requestVolumeThreshold`滑动窗口大小，即触发熔断的最小请求数量，默认为 20。举个例子，一共只有 19 个请求落在窗口内，全都失败了，也不会触发熔断
+
+`circuitBreaker.errorThresholdPercentage`  失败率达到多少百分比后熔断
