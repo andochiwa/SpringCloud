@@ -70,3 +70,36 @@ Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在�
 `circuitBreaker.requestVolumeThreshold`滑动窗口大小，即触发熔断的最小请求数量，默认为 20。举个例子，一共只有 19 个请求落在窗口内，全都失败了，也不会触发熔断
 
 `circuitBreaker.errorThresholdPercentage`  失败率达到多少百分比后熔断
+
+服务熔断后，再有请求调用时，将不会调用主逻辑，而是直接调用降级Fallback。通过断路器，实现了自动发现错误并将降级逻辑切换为主逻辑，减少响应延迟的效果
+
+# 服务监控
+
+除了隔离依赖服务的调用以外，Hystrix还提供了准实时的调用监控(Hystrix Dashboard)，Hystrix会持续的记录所有通过Hystrix发起的请求执行信息，并以统计报表和图形的形式展示给用户，包括每秒执行多少请求成功，多少失败等。Netflix通过hystrix-metrics-event-stream项目实现了对以上指标的监控。SpringCloud也提供了Hystrix Dashboard的整合，对监控内容转化成可视化界面
+
+## 步骤
+
+1. 依赖`spring-cloud-starter-netflix-hystrix-dashboard`
+
+2. 主启动类上添加启动注解`@EnableHystrixDashboard`
+
+3. 在需要被监控的模块yml配置文件中加入
+
+   ```yaml
+   management:
+     endpoints:
+       web:
+         exposure:
+           include: "*"
+   ```
+
+4. 在监控模块yml配置文件中加入
+
+   ```yaml
+   hystrix:
+     dashboard:
+       proxy-stream-allow-list: "*"
+   ```
+
+5. 输入`http://localhost:8008/actuator/hystrix.stream`即可监控
+

@@ -10,3 +10,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka # 单机版配置
 #      defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka # 集群版配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
