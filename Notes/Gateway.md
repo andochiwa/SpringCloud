@@ -31,3 +31,28 @@ Handler再通过指定的过滤器链来将请求发送到实际的服务执行�
 Filter在pre类型的过滤器可以做参数校验、权限校验、流量监控、日志输出、协议转换等
 
 在post类型的过滤器中可以做响应内容、响应头的修改、日志输出、流量监控等，有着非常重要的作用
+
+
+
+# 配置流程
+
+1. yml配置
+
+   ```yaml
+   server:
+     port: 9527
+   spring:
+     application:
+       name: cloud-gateway-service
+     cloud:
+       gateway:
+         routes:
+           - id: payment_routh           # 路由的id，没有固定规则，但要求唯一，建议配合服务名
+             uri: http://localhost:8001  # 匹配后提供服务的路由地址
+             predicates:
+               - Path=/payment/**        # 断言，路径相匹配的进行路由
+   ```
+
+   
+
+2. 
