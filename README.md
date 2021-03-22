@@ -29,9 +29,9 @@
 2. `resilience4j` 可用，国内用的少
 3. [Hystrix](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Hystrix.md) 停更
 
-## 服务网关
+## [服务网关](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3.md)
 
-1. `Gateway` 推荐
+1. [Gateway](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Gateway.md) SpringCloud自研，推荐
 2. `Zuul2` ¿喜欢内部打架
 3. `Zuul` 停更
 
