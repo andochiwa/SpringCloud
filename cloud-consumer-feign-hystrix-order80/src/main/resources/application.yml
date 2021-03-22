@@ -5,3 +5,7 @@ eureka:
     register-with-eureka: false
     service-url:
       defaultZone: http://localhost:7001/eureka
+
+feign:
+  circuitbreaker:
+    enabled: true

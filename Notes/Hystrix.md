@@ -17,7 +17,15 @@ Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在�
    })
    ```
 
-   其中fallbackMethod表示出现异常时执行的方法，@HystrixProperty.name表示这个线程执行时间, value表示超时时间
+   其中fallbackMethod表示出现异常时执行的方法，@HystrixProperty.name表示这个线程执行时间, value表示超时时间，`ignoreExceptions`可以过滤异常
 
-2. 主启动类激活 `@EnableCircuitBreaker`
+2. 主启动类激活 `@EnableHystrix`
+
+
+
+# 消费端启动方法
+
+1. 配置文件开启`feign.circuitbreaker.enabled = true`
+2. 主启动类激活 `@EnableHystrix`
+3. 编写业务类
 
