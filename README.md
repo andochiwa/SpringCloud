@@ -40,7 +40,7 @@
 1. `Nacos` 阿里巴巴牛逼
 2. [Config](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Config.md) 白给
 
-## 服务总线
+## [服务总线](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E6%80%BB%E7%BA%BF.md)
 
 1. `Nacos` 阿里巴巴牛逼
-2. `Bus` 白给
+2. [Bus](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Bus.md) 白给
