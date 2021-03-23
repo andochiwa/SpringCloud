@@ -16,7 +16,7 @@ Spring Cloud STream是一个构建消息驱动微服务的框架。
 
 通过定义绑定器Binder作为中间层，完美的实现了应用程序与消息中间件细节之间的隔离。向应用程序暴露统一的Channel通道，使得应用程序不再需要考虑各种不同消息中间件实现。
 
-Binder中，input对应生产者，output对应消费者。消息通信方式遵循发布-订阅模式
+Binder中，output对应生产者，input对应消费者。消息通信方式遵循发布-订阅模式
 
 
 
@@ -69,3 +69,20 @@ Binder中，input对应生产者，output对应消费者。消息通信方式遵
 
 
 # 消费者配置步骤
+
+1. yml配置，把生产者的output改成input即可
+
+2. 编写业务类
+
+   ```java
+   @EnableBinding(Sink.class)
+   public class ReceiveMessageController {
+       @Value("${server.port}")
+       private String serverPort;
+   
+       @StreamListener(Sink.INPUT)
+       public void input(Message<String> message) {
+           System.out.println("consumer1 ===>" + message.getPayload() + "\t" + serverPort);
+       }
+   }
+   ```
