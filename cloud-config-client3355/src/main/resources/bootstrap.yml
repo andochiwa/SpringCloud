@@ -2,19 +2,29 @@ server:
   port: 3355
 spring:
   application:
-    name: cloud-config-client
+    name: config
   profiles:
     active: dev
   cloud:
     config:
-      name: client-8001 # 配置文件名称
-      label: master # 分支名称
+      name: config # 配置文件名称
+#      label: master # 分支名称
       profile: dev # 读取后缀名称
-      uri: http://CLOUD-CONFIG-CENTER # 配置中心地址
-
+      uri: http://localhost:3344 # 配置中心地址
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:7001/eureka
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

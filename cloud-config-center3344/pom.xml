@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+        <!--bus-rabbitMQ-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+            <version>3.0.2</version>
+        </dependency>
         <!--config-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
