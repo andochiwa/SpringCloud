@@ -3,13 +3,17 @@ server:
 spring:
   application:
     name: cloud-config-center
+  profiles:
+    active: git # 表示从本地获取配置文件
   cloud:
     config:
       server:
+        native:
+          search-locations: classpath:/config
         git:
-          uri: https://github.com/zzyybs/springcloud-config
+          uri: https://gitee.com/cicadasmile/spring-cloud-config.git
           # 搜索目录
-          search-paths: /
+          search-paths: /cloudbaseconfig
       label: master
 eureka:
   client:
