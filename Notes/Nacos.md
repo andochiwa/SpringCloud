@@ -23,3 +23,36 @@ Nacos可以支持切换强一致性和高可用性。
 如果需要在服务级别编辑或存储配置信息，那么强一致性(CP)是必须的，K8S服务和DNS服务适用于CP模式。CP模式下支持注册持久化实例，此时则是以Raft协议为集群运行模式，该模式下注册实例之前必须先注册服务，如果服务不存在，则会返回错误。
 
 切换方法：`curl -X PUT '$NACOS_SERVER:8848/nacos/v1/ns/operator/switches?entry=serverMode&value=CP'`
+
+
+
+# Nacos作为配置中心配置
+
+bootstrap.yml:
+
+```yaml
+server:
+  port: 3366
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # nacos服务注册中心地址
+      config:
+        server-addr: localhost:8848 # nacos服务配置中心地址
+        file-extension: yaml # 指定yaml格式
+```
+
+application.yml:
+
+```yaml
+spring:
+  profiles:
+    active: dev # 表示开发环境
+```
+
+## 配置规则
+
+[看官方文档](https://nacos.io/zh-cn/docs/quick-start-spring-cloud.html)，不要忘记`@RefreshScope`注解
