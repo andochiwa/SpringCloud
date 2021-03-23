@@ -44,3 +44,4 @@
 
 1. `Nacos` 阿里巴巴牛逼
 2. [Bus](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Bus.md) 白给
+3. [Stream(消息驱动)](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Stream.md)
