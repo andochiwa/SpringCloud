@@ -10,6 +10,11 @@ spring:
     url: jdbc:mysql://localhost:3306/cloud?serverTimezone=Japan&characterEncoding=utf-8&useSSL=false
     username: root
     password: root
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1 # 采样率，1表示全部采集
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
