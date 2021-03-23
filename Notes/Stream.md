@@ -86,3 +86,25 @@ Binder中，output对应生产者，input对应消费者。消息通信方式遵
        }
    }
    ```
+
+
+
+# 多个消费者重复消费问题
+
+例如，订单系统做了集群部署，都会从RabbitMQ中获取消息，但如果同一个订单被两个服务获取到，就会造成数据错误，我们要避免这种情况。（即不处于同一个队列上，而队列为主题订阅模式）
+
+这时可以使用Stream中的消息分组解决，Stream中同一个组(队列？)中的多个消费者是竞争关系，能够保证消息只会被其中一个应用消费一次，不同组可以全面消费。
+
+在yml中进行自定义分组
+
+```
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      bindings: # 服务整合的处理
+        input: # 信道的名称
+          group: groupB
+```
+
