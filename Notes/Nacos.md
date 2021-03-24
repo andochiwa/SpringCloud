@@ -78,3 +78,32 @@ Group默认为DEFAULT_GROUP，Group可以把不同的微服务划分到同一个
 Service就是微服务，一个Service可以保护多个Cluster，Nacos默认Cluster是DEFAULT，Cluster是对指定微服务的一个虚拟化分。比如为了容灾，把微服务分别部署在了不同服务器，这样就可以给服务器的Service微服务起不同的集群名称，还可以让不同服务器的微服务互相调用，提升性能。
 
 Instance，微服务的实例
+
+
+
+# 搭建集群环境
+
+[文档见这里](https://nacos.io/zh-cn/docs/deployment.html)
+
+默认Nacos使用嵌入式数据库实现数据的存储。所以，当启动多个默认配置下的Nacos节点时，数据存储存在一致性问题，为了解决这个问题，Nacos采用了集中式存储的方式来支持集群化部署，目前只支持MySQL
+
+Nacos支持三种部署模式
+
+1. 单机模式，用于测试和单机试用
+2. 集群模式，用于生产环境，确保高可用
+3. 多集群模式，用于多数据中心场景
+
+### 配置MySQL步骤
+
+1. 在nacos/conf中找到Sql脚本`nacos-mysql`执行到MySQL数据库中
+2. 修改conf/application.properties文件，增加支持mysql数据源配置（目前只支持mysql），添加mysql数据源的url、用户名和密码
+
+### 配置集群步骤
+
+1. 配置好MySQL环境
+2. 更改conf/cluster.conf.example，改名为cluster.conf，在里面配置集群服务器的ip:port
+3. 更改conf/application.properties，修改端口号
+4. 修改conf/startup.sh(linux) conf/startup.cmd(windows)为集群启动
+5. nginx的配置文件nginx.conf中配置三个节点upstream, location
+6. 在工程的yml文件中将url地址换成nginx的地址
+

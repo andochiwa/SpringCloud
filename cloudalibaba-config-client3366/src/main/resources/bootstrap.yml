@@ -10,7 +10,7 @@ spring:
       config:
         server-addr: localhost:8848 # nacos服务配置中心地址
         file-extension: yaml # 指定yaml格式
-        group: DEV_GROUP
+        group: DEFAULT_GROUP
         namespace: abd45c53-dcfd-4aaf-9226-f884a10d9efb
 management:
   endpoints:
