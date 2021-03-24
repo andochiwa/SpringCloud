@@ -28,6 +28,12 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>2020.0.RC1</version>
         </dependency>
+        <!--这个依赖一定要导入！！傻逼SpringCloud2020开始Nacos无法读取bootstrap.yml-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>3.0.2</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>

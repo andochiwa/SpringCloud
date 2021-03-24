@@ -56,3 +56,17 @@ spring:
 ## 配置规则
 
 [看官方文档](https://nacos.io/zh-cn/docs/quick-start-spring-cloud.html)，不要忘记`@RefreshScope`注解
+
+**巨坑！！！！**，SpringCloud2020后Nacos无法读取bootstrap.yml文件，需要导入依赖
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bootstrap</artifactId>
+    <version>3.0.2</version>
+</dependency>
+```
+
+## 命名空间
+
+类似Java里面的package名和类名，namespace可以用于区分部署环境，Group和DataId逻辑上区分两个目标对象
