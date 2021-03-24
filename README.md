@@ -1,9 +1,3 @@
-# Spring Cloud
-
-
-
-
-
 # Spring Cloud 组件
 
 ## [服务注册中心](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C.md)
@@ -25,7 +19,7 @@
 
 ## [服务降级/熔断/限流](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7.md)
 
-1. `sentienl` 阿里巴巴牛逼
+1. [sentinel](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Sentinel.md) 阿里巴巴牛逼
 2. `resilience4j` 可用，国内用的少
 3. [Hystrix](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Hystrix.md) 停更
 
