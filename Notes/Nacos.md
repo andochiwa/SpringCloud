@@ -67,6 +67,14 @@ spring:
 </dependency>
 ```
 
-## 命名空间
+## 命名空间，组，DataID
 
-类似Java里面的package名和类名，namespace可以用于区分部署环境，Group和DataId逻辑上区分两个目标对象
+类似Java里面的package名和类名，Namespace可以用于区分部署环境，Group和DataId逻辑上区分两个目标对象
+
+默认的Namespace是public，主要用来实现隔离。比如现在有开发、测试、生产三个环境，就可以创建三个Namespace，不同的Namespace之间隔离
+
+Group默认为DEFAULT_GROUP，Group可以把不同的微服务划分到同一个分组里去
+
+Service就是微服务，一个Service可以保护多个Cluster，Nacos默认Cluster是DEFAULT，Cluster是对指定微服务的一个虚拟化分。比如为了容灾，把微服务分别部署在了不同服务器，这样就可以给服务器的Service微服务起不同的集群名称，还可以让不同服务器的微服务互相调用，提升性能。
+
+Instance，微服务的实例

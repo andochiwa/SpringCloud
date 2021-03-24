@@ -1,8 +1,8 @@
+server:
+  port: 3366
 spring:
   application:
     name: nacos-config-client
-  profiles:
-    active: dev # 表示开发环境
   cloud:
     nacos:
       discovery:
@@ -10,6 +10,8 @@ spring:
       config:
         server-addr: localhost:8848 # nacos服务配置中心地址
         file-extension: yaml # 指定yaml格式
+        group: DEV_GROUP
+        namespace: abd45c53-dcfd-4aaf-9226-f884a10d9efb
 management:
   endpoints:
     web:
