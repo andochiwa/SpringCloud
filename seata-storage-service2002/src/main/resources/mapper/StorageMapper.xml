@@ -5,7 +5,7 @@
 <mapper namespace="com.github.springcloud.mapper.StorageMapper">
     <update id="update">
         update t_storage
-        set used = used - #{count}, residue = residue + #{count}
+        set used = used + #{count}, residue = residue - #{count}
         where product_id = #{productId}
     </update>
 </mapper>

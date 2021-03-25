@@ -1,11 +1,11 @@
 server:
-  port: 2002
+  port: 2003
 spring:
   application:
-    name: seata-storage-service
+    name: seata-account-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/seata_storage?serverTimezone=Japan&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/seata_account?serverTimezone=Japan&characterEncoding=utf-8&useSSL=false
     username: root
     password: root
 seata:
