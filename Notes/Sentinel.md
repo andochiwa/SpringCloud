@@ -118,6 +118,8 @@ public String hotKeyHandler(String p1, String p2, BlockException blockException)
 
 `value`表示资源名,
 
-`blockHandler`表示异常或限流时备用方法,
+`blockHandler`表示异常或限流时备用方法，负责配置违规
 
 `blockHandlerClass`表示自定义资源类的class，注意在自定义资源类中写备用方法是需要是static
+
+`fallback` 负责java运行时异常

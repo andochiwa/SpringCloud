@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @create 2021/3/24
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-public class PaymentMain9001 {
+public class PaymentMain9003 {
 
     public static void main(String[] args){
-        SpringApplication.run(PaymentMain9001.class, args);
+        SpringApplication.run(PaymentMain9003.class, args);
     }
 }

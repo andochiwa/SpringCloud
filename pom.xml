@@ -30,9 +30,12 @@
         <module>cloud-stream-consumer8803</module>
         <module>cloudalibaba-provider-payment9001</module>
         <module>cloudalibaba-provider-payment9002</module>
+        <module>cloudalibaba-provider-payment9003</module>
+        <module>cloudalibaba-provider-payment9004</module>
         <module>cloudalibaba-consumer-order80</module>
         <module>cloudalibaba-config-client3366</module>
         <module>cloudalibaba-sentinel-service8401</module>
+        <module>cloudalibaba-sentinel-order80</module>
     </modules>
 
     <properties>
