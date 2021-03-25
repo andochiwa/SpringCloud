@@ -114,7 +114,7 @@ public String hotKeyHandler(String p1, String p2, BlockException blockException)
 
 # @SentinelResource
 
-类似`@Hystrixcommand`
+类似`@Hystrixcommand`，[详情见官方文档](https://github.com/alibaba/Sentinel/wiki/%E6%B3%A8%E8%A7%A3%E6%94%AF%E6%8C%81)
 
 `value`表示资源名,
 
@@ -123,3 +123,59 @@ public String hotKeyHandler(String p1, String p2, BlockException blockException)
 `blockHandlerClass`表示自定义资源类的class，注意在自定义资源类中写备用方法是需要是static
 
 `fallback` 负责java运行时异常
+
+`exceptionsToIgnore` 忽略哪些异常，`exceptionsToTrace` 处理哪些异常
+
+
+
+# 持久化
+
+添加持久化进nacos
+
+1. 在sentinel类中添加依赖`sentinel-datasource-nacos`
+
+2. yml配置
+
+   ```yaml
+   spring:
+     cloud:
+       sentinel:
+         datasource:
+           dsl:
+             nacos:
+               server-addr: localhost:8848
+               dataId: ${spring.application.name}
+               groupId: DEFAULT_GROUP
+               data-type: json
+               rule-type: flow
+   ```
+
+3. nacos中添加响应的json配置文件
+
+   ```json
+   [
+       {
+           "resource": "/payment",
+           "limitApp": "default",
+           "grade": 1,
+           "count": 1,
+           "strategy": 0,
+           "controlBehavior": 0,
+           "clusterMode": false
+       }
+   ]
+   ```
+
+   resource: 资源名称
+
+   limitApp: 来源应用
+
+   grade: 阈值类型，0表示线程数，1表示QPS
+
+   count: 单机阈值
+
+   strategy: 流控模式，0表示直接，1表示关联，2表示链路
+
+   controlBehavior: 流控效果，0表示直接失败，1表示Warm up，2表示排队等待
+
+   clusterMode: 是否为集群

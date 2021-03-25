@@ -13,6 +13,14 @@ spring:
         dashboard: localhost:8080
         # 默认8719，如果被占用会+1找到未占用的为止
         port: 8719
+      datasource:
+        dsl:
+          nacos:
+            server-addr: localhost:8848
+            dataId: ${spring.application.name}
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
 
 management:
   endpoints:
