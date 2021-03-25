@@ -46,3 +46,7 @@
 # 分布式请求链路跟踪
 
 1. [Sleuth](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Sleuth.md)
+
+# 分布式事务控制
+
+1. [Seata](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Seata.md)
