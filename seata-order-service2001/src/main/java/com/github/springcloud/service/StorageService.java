@@ -14,5 +14,5 @@ import org.springframework.web.bind.annotation.PutMapping;
 public interface StorageService {
 
     @PutMapping(value = "/storage/{productId}/{count}")
-    CommonResult decrease(@PathVariable("productId") Long productId, @PathVariable("count") Integer count);
+    void decrease(@PathVariable("productId") Long productId, @PathVariable("count") Integer count);
 }

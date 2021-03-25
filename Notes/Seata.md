@@ -2,6 +2,8 @@
 
 Seata是阿里巴巴开源的分布式事务解决方案，致力于在微服务架构下提供高性能和简单易用的分布式事务服务
 
+[官方文档](http://seata.io/zh-cn/docs/overview/what-is-seata.html)
+
 # 分布式事务模型
 
 ## 唯一ID+三组件
