@@ -111,3 +111,13 @@ public String hotKeyHandler(String p1, String p2, BlockException blockException)
     return "test hot key fail!";
 }
 ```
+
+# @SentinelResource
+
+类似`@Hystrixcommand`
+
+`value`表示资源名,
+
+`blockHandler`表示异常或限流时备用方法,
+
+`blockHandlerClass`表示自定义资源类的class，注意在自定义资源类中写备用方法是需要是static
