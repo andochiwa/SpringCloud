@@ -1,8 +1,5 @@
 package com.github.springcloud.service;
 
-import com.github.springcloud.entities.CommonResult;
-import com.github.springcloud.entity.Storage;
-
 /**
  * @author HAN
  * @version 1.0
@@ -10,6 +7,6 @@ import com.github.springcloud.entity.Storage;
  */
 public interface StorageService {
 
-    CommonResult<Storage> create();
+    void decrease(Long productId, Integer count);
 
 }

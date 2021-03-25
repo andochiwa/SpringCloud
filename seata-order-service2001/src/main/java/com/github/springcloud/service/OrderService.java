@@ -1,6 +1,6 @@
 package com.github.springcloud.service;
 
-import com.github.springcloud.entity.Order;
+import com.github.springcloud.entities.Order;
 
 /**
  * @author HAN

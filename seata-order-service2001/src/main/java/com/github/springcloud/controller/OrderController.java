@@ -1,7 +1,7 @@
 package com.github.springcloud.controller;
 
 import com.github.springcloud.entities.CommonResult;
-import com.github.springcloud.entity.Order;
+import com.github.springcloud.entities.Order;
 import com.github.springcloud.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

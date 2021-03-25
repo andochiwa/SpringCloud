@@ -1,10 +1,12 @@
-package com.github.springcloud.entity;
+package com.github.springcloud.entities;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 /**
  * @author HAN
@@ -14,16 +16,22 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Storage {
+public class Order {
 
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    private Long userId;
+
     private Long productId;
 
-    private Integer total;
+    private Integer count;
 
-    private Integer used;
+    private BigDecimal money;
 
-    private Integer residue;
+    /**
+     * 订单状态：0：创建中，1：已完成
+     */
+    private Integer status;
+
 }

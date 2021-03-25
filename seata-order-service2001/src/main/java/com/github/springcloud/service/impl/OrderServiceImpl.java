@@ -1,7 +1,7 @@
 package com.github.springcloud.service.impl;
 
 import com.github.springcloud.Mapper.OrderMapper;
-import com.github.springcloud.entity.Order;
+import com.github.springcloud.entities.Order;
 import com.github.springcloud.service.AccountService;
 import com.github.springcloud.service.OrderService;
 import com.github.springcloud.service.StorageService;
