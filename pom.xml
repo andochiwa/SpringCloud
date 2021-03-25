@@ -36,6 +36,7 @@
         <module>cloudalibaba-config-client3366</module>
         <module>cloudalibaba-sentinel-service8401</module>
         <module>cloudalibaba-sentinel-order80</module>
+        <module>seata-order-service2001</module>
     </modules>
 
     <properties>
