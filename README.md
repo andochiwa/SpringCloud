@@ -10,7 +10,7 @@
 ## [服务调用](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8.md)
 
 1. [Ribbon](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Ribbon.md) 停更，但可用
-2. [LoadBalancer](https://github.com/andochiwa/SpringCloud/blob/master/Notes/Ribbon.md) 慢慢取代Ribbon
+2. [LoadBalancer](https://github.com/andochiwa/SpringCloud/blob/master/Notes/LoadBalancer.md) 慢慢取代Ribbon
 
 ## [服务调用2](https://github.com/andochiwa/SpringCloud/blob/master/Notes/%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8.md)
 
