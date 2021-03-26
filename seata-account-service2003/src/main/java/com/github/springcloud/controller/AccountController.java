@@ -25,6 +25,7 @@ public class AccountController {
     @PutMapping(value = "/account/{userId}")
     public CommonResult<Account> decrease(@PathVariable("userId") Long userId, @RequestParam("money") BigDecimal money) {
         accountService.decrease(userId, money);
+        int i = 1 / 0;
         return new CommonResult<>(200, "扣减money成功");
     }
 

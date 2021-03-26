@@ -15,4 +15,6 @@ public interface OrderMapper extends BaseMapper<Order> {
     @Override
     int insert(Order order);
 
+    @Override
+    int updateById(Order entity);
 }

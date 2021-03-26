@@ -19,4 +19,10 @@ class OrderMapperTest {
         orderMapper.insert(order);
     }
 
+    @Test
+    void testUpdate() {
+        Order order = new Order(11L, 1L, 1L, 10, new BigDecimal(10), 1);
+        orderMapper.updateById(order);
+    }
+
 }
